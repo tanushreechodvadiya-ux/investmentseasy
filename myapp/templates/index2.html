@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InvestmentsEasy</title>
+  <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "General Sans", sans-serif;
+      background: #FFFDF6;
+      color: #1A1A1A;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 390px;
+      margin: 0 auto;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      max-width: 390px;
+      background: #FFFDF6CC;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+    }
+
+    nav img.logo {
+      height: 28px;
+    }
+
+    nav .menu {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* Fullscreen Mobile Menu */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      max-width: 390px;
+      background: rgba(255, 253, 246, 0.95);
+      backdrop-filter: blur(10px);
+      display: none;
+      flex-direction: column;
+      padding: 20px;
+      z-index: 2000;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .overlay.active {
+      display: flex;
+    }
+
+    .overlay-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .overlay-header img {
+      height: 28px;
+    }
+
+    .overlay-header .close {
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .overlay nav {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .overlay nav a {
+      color: #1A1A1A;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .overlay nav a:hover {
+      color: #0E8C37;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 20px 40px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #0E8C37;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .section-img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .hours-table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      font-size: 0.85rem;
+    }
+
+    .highlight {
+      background: #f0f0f0;
+      font-weight: 600;
+    }
+
+    /* Contact */
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+
+    .contact .submit-btn {
+      width: 100%;
+      padding: 12px;
+      background: #0E8C37;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #0E8C37;
+      color: #fff;
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Navbar -->
+    <nav>
+      <img src="logo.png" alt="Logo" class="logo">
+      <div class="menu" onclick="openMenu()">☰</div>
+    </nav>
+
+    <!-- Fullscreen Overlay Menu -->
+    <div id="overlayMenu" class="overlay">
+      <div class="overlay-header">
+        <img src="logo.png" alt="Logo">
+        <div class="close" onclick="closeMenu()">✕</div>
+      </div>
+      <nav>
+        <a href="#">Life Insurance</a>
+        <a href="#">Longterm Care</a>
+        <a href="#">Retirement</a>
+        <a href="#">Estate Planning</a>
+        <a href="#">Wealth Management</a>
+        <a href="#">College Planning</a>
+      </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Welcome to <br> INVESTMENTSEASY</h1>
+      <p>We Prioritize Your Goal — Empowering Smarter Planning Today for a Secure Tomorrow.</p>
+      <a href="#" class="btn-primary">GET STARTED TODAY</a>
+      <img src="hero.jpg" alt="Hero" class="section-img">
+    </section>
+
+    <!-- Smart Planning -->
+    <section>
+      <h2>Smart Planning for a <br><strong>Secure Future</strong></h2>
+      <img src="planning.jpg" alt="Planning" class="section-img">
+      <div class="card">
+        <h3>A Holistic Approach To Planning</h3>
+        <p>We take into account both the immediate future and the distant horizon, devising strategies to effectively prepare for each.</p>
+      </div>
+      <div class="card">
+        <h3>Define Your Financial Goals</h3>
+        <p>We help establish financial goals as a means to realize the lifestyle you aspire to.</p>
+      </div>
+      <div class="card">
+        <h3>Monitor And Evolve</h3>
+        <p>We review your personal financial plan every year, making necessary adjustments as required.</p>
+      </div>
+    </section>
+
+    <!-- Profile -->
+    <section>
+      <h2>Financial Planning Made Easy. <br><span style="color:#0E8C37;">Putting YOU First.</span></h2>
+      <div class="card">
+        <img src="profile.jpg" alt="Profile" class="section-img">
+        <h3>I am Monali Patel</h3>
+        <p><a href="mailto:monali@investmentseasy.com">monali@investmentseasy.com</a></p>
+        <table class="hours-table">
+          <tr><td>Monday</td><td>09:00 am – 09:00 pm</td></tr>
+          <tr><td>Tuesday</td><td>09:00 am – 09:00 pm</td></tr>
+          <tr><td>Wednesday</td><td>09:00 am – 09:00 pm</td></tr>
+          <tr class="highlight"><td>Thursday</td><td>09:00 am – 09:00 pm</td></tr>
+          <tr><td>Friday</td><td>09:00 am – 09:00 pm</td></tr>
+          <tr><td>Saturday</td><td>09:00 am – 09:00 pm</td></tr>
+          <tr><td>Sunday</td><td>09:00 am – 09:00 pm</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+      <h2>Contact Us</h2>
+      <input type="text" placeholder="Enter your name">
+      <input type="email" placeholder="Enter email id here">
+      <textarea rows="4" placeholder="Tell us more about your financial goals and concerns"></textarea>
+      <input type="file">
+      <button class="submit-btn">SUBMIT</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      Copyright © 2023 InvestmentsEasy. All Rights Reserved.
+    </footer>
+  </div>
+
+  <script>
+    function openMenu() {
+      document.getElementById("overlayMenu").classList.add("active");
+    }
+    function closeMenu() {
+      document.getElementById("overlayMenu").classList.remove("active");
+    }
+  </script>
+</body>
+</html>

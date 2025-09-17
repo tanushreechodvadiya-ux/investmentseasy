@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Business Hours</title>
+  <link href="static/css/style.css" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+  <style>
+    .hours-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      padding: 0;
+      width: 100%;
+      max-width: 358px;
+      margin: 20px auto;
+      border: 1px solid #F2E7C5;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    table {
+      border-collapse: collapse; /* make borders touch */
+      width: 100%;
+      text-align: left;
+    }
+
+    td {
+      border-bottom: 1px solid #F2E7C5;
+    }
+
+    .day {
+      width: 40%;
+      padding: 12px 10px 12px 20px;
+      font-size: 18px;
+      color: #00000099;
+      border-right: 1px solid #F2E7C5;
+      font-family: General Sans;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 16px;
+      leading-trim: NONE;
+      line-height: 100%;
+      letter-spacing: 0%;
+    }
+
+    .time {
+      width: 60%;
+      padding: 12px 10px 12px 20px;
+      color: #00000099;
+      font-family: General Sans;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 100%;
+    }
+
+    tr:last-child td {
+      border-bottom: none; /* remove last bottom line */
+    }
+
+    /* Highlight today's row */
+    tr.highlight td {
+      font-weight: 500;
+      color: #000;
+    }
+
+    /* Responsive: smaller text on mobile */
+    @media (max-width: 480px) {
+      .day, .time {
+        font-size: 16px;
+        padding: 10px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hours-card">
+    <table id="hoursTable">
+      <tr><td class="day">Monday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+      <tr><td class="day">Tuesday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+      <tr><td class="day">Wednesday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+      <tr><td class="day">Thursday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+      <tr><td class="day">Friday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+      <tr><td class="day">Saturday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+      <tr><td class="day">Sunday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+    </table>
+  </div>
+
+  <script>
+    const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    const today = new Date().getDay();
+    const rows = document.querySelectorAll("#hoursTable tr");
+
+    rows.forEach(row => {
+      if(row.querySelector(".day").innerText === days[today]){
+        row.classList.add("highlight");
+      }
+    });
+  </script>
+
+</body>
+</html>

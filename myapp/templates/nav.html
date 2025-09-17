@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Investments Easy</title>
+    <link href="static/css/style.css" rel="stylesheet">
+</head>
+<body>
+<!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">
+        <a href="/"><img src="static/photo/logo.png"></a>
+    </div>
+
+    <!-- Desktop menu links -->
+    <div class="nav-links">
+      <a href="lifeinsurance">Life Insurance</a>
+      <a href="longtermcareplanning">Longterm care</a>
+      <a href="retirement">Retirement</a>
+      <a href="estateplanning">Estate Planning</a>
+      <a href="wealthmanagement">Wealth Management</a>
+      <a href="collegeplanning">College Planning</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button class="menu-toggle" onclick="toggleNav()">
+      <span id="menuIcon"><img src="static/photo/vector.png"></span>
+      <span id="closeIcon" style="display:none;"><img src="static/photo/vector2.png"></span>
+    </button>
+
+  </div>
+
+  <!-- Mobile overlay menu -->
+  <div id="myNav" class="overlay">
+    <a href="lifeinsurance">Life Insurance</a>
+    <a href="longtermcareplanning">Longterm care</a>
+    <a href="retirement">Retirement</a>
+    <a href="estateplanning">Estate Planning</a>
+    <a href="wealthmanagement">Wealth Management</a>
+    <a href="collegeplanning">College Planning</a>
+  </div>
+
+<script>
+  const overlay = document.getElementById('myNav');
+  const navbar = document.querySelector('.navbar');
+  const menuIcon = document.getElementById('menuIcon');
+  const closeIcon = document.getElementById('closeIcon');
+  const mainContent = document.getElementById('mainContent'); // add this
+
+  function toggleNav() {
+    const isOpen = overlay.classList.toggle('show');
+    navbar.classList.toggle('blur-active');
+    mainContent.classList.toggle('blur');  // <-- new line to blur page content
+
+    // Toggle icon visibility
+    menuIcon.style.display = isOpen ? 'none' : 'block';
+    closeIcon.style.display = isOpen ? 'block' : 'none';
+  }
+
+  // Close menu when clicking any overlay link
+  document.querySelectorAll('#myNav a').forEach(link => {
+    link.addEventListener('click', () => {
+      overlay.classList.remove('show');
+      navbar.classList.remove('blur-active');
+      mainContent.classList.remove('blur'); // <-- new line
+      menuIcon.style.display = 'block';
+      closeIcon.style.display = 'none';
+    });
+  });
+
+  // Highlight current page link on desktop
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    if (link.href === window.location.href) {
+      link.classList.add('active');
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Investmentseasy</title>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+   {% include 'nav.html' %}
+  <!-- lifeinsurance-->
+<div id="mainContent">
+  <div class="li">
+    <div class="liheading">
+        <button class="btn1">Estate Planning</button>
+        <h2>Securing Your Legacy</h2>
+        <p>Estate planning is a crucial component of financial wellness, ensuring your assets are managed and distributed according to your wishes. At InvestmentsEasy, we offer bespoke estate planning services that reflect your values and goals, providing peace of mind for you and your loved ones.</p>
+        <img src="static/photo/estateplanning.jpg">
+    </div>
+    <div class="licontent">
+        <div class="ul1">
+            <h3>Estate Planning Essentials</h3>
+            <ul>
+                <li>
+                    Drafting wills, setting up trusts, and establishing powers of attorney and healthcare directives.
+                <li>
+                    Discussing the roles and responsibilities of executors and trustees.
+                </li>
+            </ul>
+        </div>
+        <div class="ul2">
+            <h3>Tax Efficiency</h3>
+            <ul>
+                <li>
+                    Implementing strategies to minimize estate and inheritance taxes.
+                <li>
+                    Advising on charitable contributions and gifting strategies for tax benefits.
+                </li>
+            </ul>
+        </div>
+        <div class="ul3">
+        <h3>Family and Legacy Planning</h3>
+            <ul>
+                <li>
+                    Facilitating family discussions about wealth transfer and legacy aspirations.
+                </li>
+                <li>
+                    Creating plans that reflect your values and legacy, including philanthropic endeavors.
+                </li>
+            </ul>
+        </div>
+    </div>
+  </div>
+  <section class="profile-section">
+      <div class="container">
+        <h2>Financial Planning <br>Made Easy.<br><span class="highlight-green">Putting YOU First.</span></h2>
+        <div class="profile-card">
+          <div class="profile-img">
+            <img src="static/photo/monalipatel.png" alt="Monali Patel">
+          </div>
+          <div class="profile-info">
+            <h3>I am Monali Patel</h3>
+            <a href="mailto:monali@investmentseasy.com">monali@investmentseasy.com</a>
+            <p>
+              Reach out with any questions or to set up a meeting to discover the
+              best path to your financial freedom!
+            </p>
+          </div>
+        </div>
+        <div class="hours-card">
+            <table id="hoursTable">
+              <tr><td class="day">Monday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+              <tr><td class="day">Tuesday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+              <tr><td class="day">Wednesday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+              <tr><td class="day">Thursday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+              <tr><td class="day">Friday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+              <tr><td class="day">Saturday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+              <tr><td class="day">Sunday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+            </table>
+        </div>
+      </div>
+    </section>
+    <div class="contact-section">
+      <!-- Image on left / top -->
+      <div class="image-side">
+        <img src="static/photo/retire.jpg" alt="retirement">
+      </div>
+
+      <!-- Contact form on right / bottom -->
+      <div class="form-side">
+        <h2>Contact Us</h2>
+        <form>
+          <label>Enter Name</label>
+          <input type="text" placeholder="Enter your name">
+
+          <label>Email Id</label>
+          <input type="email" placeholder="Enter email id here">
+
+          <label>Tell us your thoughts</label>
+          <textarea placeholder="Tell us more about your financial goals and concerns."></textarea>
+
+          <label>Attach Files</label>
+          <div class="file-upload">
+                <label for="fileUpload">
+                    <img src="static/photo/contactarrow.png" alt="contactarrow">
+                </label>
+                <input type="file" id="fileUpload" name="file" accept="image/*">
+                <br><p>Drop a file here to upload, or click here to upload</p>
+          </div>
+            <p class="recaptcha-text">
+              This site is protected by reCAPTCHA and the Google
+              <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> apply.
+            </p>
+          <button type="submit">SUBMIT</button>
+        </form>
+      </div>
+    </div>
+
+</div>
+{% include 'footer.html' %}
+ <script>
+    let isOpen = false;
+
+    function toggleNav() {
+      const nav = document.getElementById("myNav");
+      const icon = document.getElementById("menuIcon");
+      const content = document.getElementById("mainContent");
+
+      if (!isOpen) {
+        nav.classList.add("show");
+        content.classList.add("blur");
+        icon.textContent = "×"; // cross
+        isOpen = true;
+      } else {
+        nav.classList.remove("show");
+        content.classList.remove("blur");
+        icon.textContent = "☰"; // hamburger
+        isOpen = false;
+      }
+    }
+
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const today = new Date().getDay();
+    // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+    const table = document.getElementById("hoursTable");
+    if (table) {
+      const rows = table.getElementsByTagName("tr");
+      // Adjust because in JS Sunday=0, Monday=1, ... so rows[1] = Monday
+      const index = today === 0 ? 7 : today;
+      if (rows[index - 1]) {
+        rows[index - 1].classList.add("active");
+      }
+    }
+  });
+</script>
+</body>
+</html>

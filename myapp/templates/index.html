@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+
+  <title>Investments Easy</title>
+  <link href="static/css/style.css" rel="stylesheet">
+</head>
+<body>
+{% include 'nav.html' %}
+
+  <!-- Page content wrapper (for blur effect) -->
+<div id="mainContent">
+    <section class="hero">
+      <div class="hero-content">
+        <img src="static/photo/logo2.png" class="img3" alt="Floating Logo">
+        <img src="static/photo/logo2.png" class="img2" alt="Floating Logo">
+        <h2 class="welcome-text">Welcome to</h2>
+        <h1 class="brand-name">INVESTMENTSEASY</h1>
+        <p class="sub-text">
+          We Prioritize Your Goals—Empowering Smarter Planning Today for a Secure Tomorrow.
+          Where your financial goals are our priority. Plan for tomorrow, today!
+        </p>
+        <a href="/" class="cta-btn">GET STARTED TODAY <img src="static/photo/ArrowUpRight.png"></a>
+      </div>
+      <section class="image-section">
+          <img src="static/photo/welcom.jpg" alt="Responsive Image">
+      </section>
+
+      <!-- Side Icon (desktop only) -->
+    </section>
+    <section class="planning">
+      <div class="container">
+        <h2>Smart Planning for a <br><span class="highlight">Secure Future</span></h2>
+        <p class="intro">
+          We create strategies that balance today’s needs with tomorrow’s aspirations.
+          From setting clear financial goals to monitoring progress, our approach
+          ensures your wealth grows steadily while adapting to life’s changes.
+        </p>
+
+        <div class="planning-grid">
+          <div class="card">
+            <img src="static/photo/sec1.png" alt="Planning">
+            <h3>A Holistic Approach To Planning</h3>
+            <p>
+              We take into account both the immediate future and the distant horizon, devising strategies to effectively prepare for each.
+            </p>
+          </div>
+
+          <div class="card">
+            <img src="static/photo/sec2.png" alt="Financial Goals">
+            <h3>Define Your Financial Goals</h3>
+            <p>
+              We help establish financial goals as a means to realize the lifestyle you aspire to. These goals are stepping stones towards living the life you envision.
+            </p>
+          </div>
+
+          <div class="card">
+            <img src="static/photo/sec3.png" alt="Monitor">
+            <h3>Monitor And Evolve</h3>
+            <p>
+              We review your personal financial plan every year. Starting with a snapshot of how your finances are doing, and make any necessary changes as required.
+            </p>
+          </div>
+
+          <div class="card">
+            <img src="static/photo/sec4.png" alt="Essence">
+            <h3>In Essence</h3>
+            <p>
+              A solid financial plan includes identifying your goals, creating a budget, building an emergency fund, paying off high interest debt and investing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="profile-section">
+      <div class="container">
+        <h2>Financial Planning <br>Made Easy.<br><span class="highlight-green">Putting YOU First.</span></h2>
+        <div class="profile-card">
+          <div class="profile-img">
+            <img src="static/photo/monalipatel.png" alt="Monali Patel">
+          </div>
+          <div class="profile-info">
+            <h3>I am Monali Patel</h3>
+            <a href="mailto:monali@investmentseasy.com">monali@investmentseasy.com</a>
+            <p>
+              Reach out with any questions or to set up a meeting to discover the
+              best path to your financial freedom!
+            </p>
+          </div>
+        </div>
+        <div class="hours-card">
+            <table id="hoursTable">
+              <tr><td class="day">Monday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+              <tr><td class="day">Tuesday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+              <tr><td class="day">Wednesday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+              <tr><td class="day">Thursday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+              <tr><td class="day">Friday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+              <tr><td class="day">Saturday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+              <tr><td class="day">Sunday</td><td class="time">09:00 am – 09:00 pm</td></tr>
+            </table>
+        </div>
+      </div>
+    </section>
+    <div class="contact-section">
+      <!-- Image on left / top -->
+      <div class="image-side">
+        <img src="static/photo/retire.jpg" alt="retirement">
+      </div>
+
+      <!-- Contact form on right / bottom -->
+      <div class="form-side">
+        <h2>Contact Us</h2>
+        <form>
+          <label>Enter Name</label>
+          <input type="text" placeholder="Enter your name">
+
+          <label>Email Id</label>
+          <input type="email" placeholder="Enter email id here">
+
+          <label>Tell us your thoughts</label>
+          <textarea placeholder="Tell us more about your financial goals and concerns."></textarea>
+
+          <label>Attach Files</label>
+          <div class="file-upload">
+                <label for="fileUpload">
+                    <img src="static/photo/contactarrow.png" alt="contactarrow">
+                </label>
+                <input type="file" id="fileUpload" name="file" accept="image/*">
+                <br><p>Drop a file here to upload, or click here to upload</p>
+          </div>
+            <p class="recaptcha-text">
+              This site is protected by reCAPTCHA and the Google
+              <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> apply.
+            </p>
+          <button type="submit">SUBMIT</button>
+        </form>
+      </div>
+    </div>
+
+
+</div> <!-- end mainContent -->
+
+{% include 'footer.html' %}
+
+  <script>
+    let isOpen = false;
+
+    function toggleNav() {
+      const nav = document.getElementById("myNav");
+      const icon = document.getElementById("menuIcon");
+      const content = document.getElementById("mainContent");
+
+      if (!isOpen) {
+        nav.classList.add("show");
+        content.classList.add("blur");
+        icon.textContent = "×"; // cross
+        isOpen = true;
+      } else {
+        nav.classList.remove("show");
+        content.classList.remove("blur");
+        icon.textContent = "☰"; // hamburger
+        isOpen = false;
+      }
+    }
+
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const today = new Date().getDay();
+    // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+    const table = document.getElementById("hoursTable");
+    if (table) {
+      const rows = table.getElementsByTagName("tr");
+      // Adjust because in JS Sunday=0, Monday=1, ... so rows[1] = Monday
+      const index = today === 0 ? 7 : today;
+      if (rows[index - 1]) {
+        rows[index - 1].classList.add("active");
+      }
+    }
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    const today = new Date().getDay(); // 0 = Sunday, 1 = Monday...
+
+    const rows = document.querySelectorAll("#hoursTable tr");
+    rows.forEach(row => {
+      const dayCell = row.querySelector(".day");
+      if (dayCell && dayCell.textContent.trim() === days[today]) {
+        row.classList.add("highlight");
+      }
+    });
+  });
+</script>
+<script>
+    const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    const today = new Date().getDay();
+    const rows = document.querySelectorAll("#hoursTable tr");
+
+    rows.forEach(row => {
+      if(row.querySelector(".day").innerText === days[today]){
+        row.classList.add("highlight");
+      }
+    });
+</script>
+
+
+</body>
+</html>
