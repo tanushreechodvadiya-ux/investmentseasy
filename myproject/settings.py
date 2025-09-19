@@ -28,7 +28,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'your-fallback-secret-key')
 DEBUG = True # Always keep False in production
 
 
-ALLOWED_HOSTS = []
+AALLOWED_HOSTS = ['localhost', '127.0.0.1', 'investmentseasy-5yw5.onrender.com']
+
 
 
 
