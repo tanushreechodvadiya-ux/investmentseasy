@@ -1,3 +1,4 @@
-web: gunicorn PythonProject3.wsgi --bind 0.0.0.0:$PORT
+web: gunicorn myproject.wsgi --bind 0.0.0.0:$PORT
+
 
 
