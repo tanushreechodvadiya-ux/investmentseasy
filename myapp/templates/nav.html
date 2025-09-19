@@ -40,41 +40,8 @@
     <a href="collegeplanning">College Planning</a>
   </div>
 
-<script>
-  const overlay = document.getElementById('myNav');
-  const navbar = document.querySelector('.navbar');
-  const menuIcon = document.getElementById('menuIcon');
-  const closeIcon = document.getElementById('closeIcon');
-  const mainContent = document.getElementById('mainContent'); // add this
 
-  function toggleNav() {
-    const isOpen = overlay.classList.toggle('show');
-    navbar.classList.toggle('blur-active');
-    mainContent.classList.toggle('blur');  // <-- new line to blur page content
 
-    // Toggle icon visibility
-    menuIcon.style.display = isOpen ? 'none' : 'block';
-    closeIcon.style.display = isOpen ? 'block' : 'none';
-  }
-
-  // Close menu when clicking any overlay link
-  document.querySelectorAll('#myNav a').forEach(link => {
-    link.addEventListener('click', () => {
-      overlay.classList.remove('show');
-      navbar.classList.remove('blur-active');
-      mainContent.classList.remove('blur'); // <-- new line
-      menuIcon.style.display = 'block';
-      closeIcon.style.display = 'none';
-    });
-  });
-
-  // Highlight current page link on desktop
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    if (link.href === window.location.href) {
-      link.classList.add('active');
-    }
-  });
-</script>
 
 </body>
 </html>

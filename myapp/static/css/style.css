@@ -15,12 +15,11 @@
       background-color: #FFFDF6;
     }
 
+
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #FFFDF6CC;
-      backdrop-filter: blur(12px);
       padding: 12px 20px;
       position: fixed;
       top: 0;
@@ -29,6 +28,9 @@
       border-bottom: 1px solid #ddd;
       z-index: 2000;
       height: 80px; /* fixed height */
+      background-color: rgba(255, 253, 246, 0.6); /* transparent */
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px); /* Safari support */
     }
 
     .navbar .logo img {
@@ -44,10 +46,9 @@
     }
 
     /* Blur the navbar when mobile menu is open */
-    .navbar.blur-active {
-      backdrop-filter: blur(6px);
-      background-color: rgba(255, 255, 255, 0.6); /* semi-transparent white */
-      transition: 0.3s;
+    .navbar.active {
+        background-color: rgba(255, 253, 246, 0.6); /* keep transparency */
+        transition: background-color 0.3s ease;
     }
 
 
@@ -71,14 +72,23 @@
     }
 
     /* Hamburger button (hidden by default) */
-    .menu-toggle {
-      font-size: 38px;
+   .menu-toggle {
       cursor: pointer;
       border: none;
       background: none;
-      line-height: 2;
-      display: none;
-    }
+      display: none;         /* hidden by default (desktop) */
+
+      width: 35px;            /* icon size */
+      height: 35px;
+      padding: 0;
+   }
+
+   .menu-toggle img {
+      width: 100%;             /* make image fill button */
+      height: 100%;
+      object-fit: contain;
+   }
+
 
     /* Overlay menu (mobile only) */
     .overlay {
@@ -160,7 +170,7 @@
     /* Main content */
 
     #mainContent {
-      margin-top: 70px;
+      padding-top: 70px;
       color: #1A1A1A;
       backdrop-filter: blur(20px); /* space for fixed navbar */
     }
@@ -218,6 +228,7 @@
       border-radius: 50px;
       text-decoration: none;
       transition: 0.3s;
+      margin-bottom:60px;
     }
 
     .cta-btn:hover {
@@ -241,7 +252,6 @@
       height: 680px;           /* fixed desktop height */
       object-fit: cover;       /* crop smartly while keeping proportions */
       border-radius: 30px;     /* optional */
-      margin-top:60px;
     }
 
     .img3 {
@@ -371,6 +381,7 @@
       .cta-btn{
         position: relative;
         padding: 12px 48px 12px 25px;
+        margin-bottom:60px;
       }
 
       .cta-btn img{
@@ -398,8 +409,8 @@
 
       .img2{
          position: absolute;
-         top: 90%;
-         left: -1%;
+         top: 80%;
+         left: -2%;
          transform: rotate(-15deg);
          width: 100%;       /* responsive scaling */
          max-width: 60px;   /* prevent too large on desktop */
@@ -508,7 +519,7 @@
 
       .profile-img {
          width: 100%;
-         max-width: 360px;
+         max-width: 380px;
          height: auto;          /* make height flexible */
          overflow: hidden;
          border-radius: 0;
@@ -518,9 +529,7 @@
          width: 100%;
          height: auto;          /* maintain aspect ratio */
          object-fit: cover;   /* shows full image without cutting */
-         display: block;
          border-radius: 0;
-         background: #fff;      /* optional */
       }
 
       .profile-info {
@@ -874,6 +883,7 @@
     /* mobile view: stack */
     @media (max-width: 768px) {
       .contact-section {
+      margin-top:-20px;
         font-family:General Sans;
         flex-direction: column;
         padding: 30px 20px;
@@ -881,7 +891,7 @@
 
       .image-side img {
         height: auto;        /* remove fixed height on mobile */
-        margin-bottom: 20px; /* space below image */
+        margin-bottom: 10px; /* space below image */
         angle: 0 deg;
         opacity: 1;
         border-radius: 30px;
@@ -938,57 +948,7 @@
       }
 
 
-      .file-upload {
-          display: flex;
-          align-items: center;
-          gap: 15px;
-          padding: 15px;
-          border: 2px dashed #F2E7C5;
-          border-radius: 20px;
-          text-align: center;
-          cursor: pointer;
-          transition: 0.3s;
-          background: #ffffff;
-      }
 
-        .file-upload:hover {
-          border-color: #F2E7C5;
-          background: #ffffff;
-        }
-
-        .file-upload label {
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-        }
-
-        .file-upload img {
-          Format="Stroke";
-          Weight="Regular";
-          width: 32px;
-          height: 32px;
-          angle: 0 deg;
-          opacity: 1;
-          margin-top:35px;
-          margin-left:180px;
-        }
-
-        .file-upload input[type="file"] {
-          display: none; /* hide the default file input */
-        }
-
-        .file-upload p {
-          font-family: General Sans;
-          font-weight: 400;
-          font-style: Regular;
-          font-size: 18px;
-          leading-trim: NONE;
-          line-height: 100%;
-          letter-spacing: 0%;
-          text-align: center;
-          margin-top:10px;
-          color: #00000099;
-        }
 
         .recaptcha-text {
           font-family: General Sans;
@@ -1023,14 +983,15 @@
 
     .hours-card {
       background: white;
+      align-items: center;
       border-radius: 20px;
       overflow: hidden;
       padding: 0;
       width: 100%;
-      max-width: 458px;
-      margin-top:50px;
+      max-width: 350px;
+      margin: 30px auto;
       border: 1px solid #F2E7C5;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0px 7px 15px 0px #655F4E1A;
     }
 
     table {
@@ -1085,6 +1046,69 @@
         padding: 10px 14px;
       }
     }
+
+    .file-upload {
+    display: flex;
+    flex-direction: column; /* stack vertically on mobile */
+    align-items: center;    /* center horizontally */
+    gap: 10px;
+    padding: 15px;
+    border: 2px dashed #F2E7C5;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    background: #ffffff;
+}
+
+.file-upload:hover {
+    border-color: #F2E7C5;
+    background: #ffffff;
+}
+
+.file-upload img {
+    width: 40px;   /* responsive size */
+    height: 40px;
+    margin: 10px auto; /* center image */
+}
+
+.file-upload input[type="file"] {
+    display: none; /* hide the default file input */
+}
+
+.file-upload p {
+    font-family: 'General Sans', sans-serif;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 18px;
+    leading-trim: NONE;
+    line-height: 100%;
+    text-align: center;
+    color: #00000099;
+    margin-top:-35px;
+    margin-bottom:20px;
+    font-family: General Sans;
+}
+
+/* Optional media query for larger screens */
+@media(min-width: 768px) {
+    .file-upload {
+        flex-direction: row; /* desktop: image + text side by side */
+        gap: 15px;
+        padding: 15px 30px;
+    }
+
+    .file-upload img {
+        width: 32px;
+        height: 32px;
+        margin: 0; /* remove extra margin */
+    }
+
+    .file-upload p {
+        font-size: 18px;
+    }
+}
+
 
 
    .footer{

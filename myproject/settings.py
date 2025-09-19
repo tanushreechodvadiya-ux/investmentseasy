@@ -25,10 +25,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'your-fallback-secret-key')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # Always keep False in production
+DEBUG = True # Always keep False in production
 
 
-ALLOWED_HOSTS = ['investmentsesay.onrender.com']
+ALLOWED_HOSTS = []
 
 
 
@@ -120,11 +120,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 STATIC_URL = '/static/'
 import os
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
